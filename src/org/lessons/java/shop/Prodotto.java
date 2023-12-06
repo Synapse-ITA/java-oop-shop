@@ -6,12 +6,12 @@ public class Prodotto {
     private int productCode;
     private String productName;
     private String productDescription;
-    private int productPrice;
+    private double productPrice;
     private int productIva;
 
     // COSTRUTTORI
-    public Prodotto(int code, String productName, String productDescription, int productPrice, int productIva) {
-        this.productCode = code;
+    public Prodotto(int productCode, String productName, String productDescription, double productPrice, int productIva) {
+        this.productCode = productCode;
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
@@ -27,16 +27,32 @@ public class Prodotto {
         return productName;
     }
 
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
     public String getProductDescription() {
         return productDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
 
     public double getProductPrice() {
         return productPrice;
     }
 
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
+    }
+
     public int getProductIva() {
         return productIva;
+    }
+
+    public void setProductIva(int productIva) {
+        this.productIva = productIva;
     }
 
     // METODI
@@ -47,14 +63,22 @@ public class Prodotto {
         return "Il prezzo base è: " + productPrice + " €";
     }
     // METODO CHE MOSTRA PREZZO INCLUSO IVA
-    public String showIvaPrice(){
-        return "Il prezzo incluso di IVA è: " + (productPrice * (productIva / 100)) + " €";
+    public String getIvaPrice(){
+        return "Il prezzo incluso di IVA è: " + (productPrice + (productPrice * ((double) productIva / 100))) + " €";
     }
 
     // METODO CHE RESTITUISCE PRODUCTNAME + PRODUCTCODE
     public String getFullName(){
-        return productName + " " + productCode;
+        return "Nome prodotto: " + productName + " - Codice prodotto: " + productCode;
     }
+
+    // METODO UTILITA' CREAZIONE CODICE PER IL PRODOTTO
+
+
+
+
+
+
 }
 
 
