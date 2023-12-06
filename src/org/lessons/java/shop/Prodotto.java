@@ -1,6 +1,9 @@
 package org.lessons.java.shop;
 
+import java.util.Random;
+
 public class Prodotto {
+    private Random random = new Random();
 
     // ATTRIBUTI
     private int productCode;
@@ -10,8 +13,8 @@ public class Prodotto {
     private int productIva;
 
     // COSTRUTTORI
-    public Prodotto(int productCode, String productName, String productDescription, double productPrice, int productIva) {
-        this.productCode = productCode;
+    public Prodotto(String productName, String productDescription, double productPrice, int productIva) {
+        this.productCode = generateRandomCode();
         this.productName = productName;
         this.productDescription = productDescription;
         this.productPrice = productPrice;
@@ -57,16 +60,11 @@ public class Prodotto {
 
     // METODI
 
-    // METODO CHE MOSTRA PREZZO NO IVA
-
-    public String showPrice(){
-        return "Il prezzo base è: " + productPrice + "€";
-    }
     // METODO CHE MOSTRA PREZZO INCLUSO IVA
         public String getIvaPrice(){
         double productIvaPrice = (productPrice + (productPrice * ((double) productIva / 100)));
         String decimalPrice = String.format("%.2f", productIvaPrice);
-        return "Il prezzo incluso IVA è: " + decimalPrice + " €";
+        return "Il prezzo incluso IVA (" + productIva + "%) è: " + decimalPrice + " €";
     }
 
     // METODO PER PREZZO BASE
@@ -82,12 +80,10 @@ public class Prodotto {
     }
 
     // METODO UTILITA' CREAZIONE CODICE PER IL PRODOTTO
-
-
-
-
-
-
+    private int generateRandomCode() {
+        // Num random tra 1000 e 9999
+        return 1000 + random.nextInt(9000);
+    }
 }
 
 
