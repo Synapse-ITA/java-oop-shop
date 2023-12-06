@@ -60,16 +60,25 @@ public class Prodotto {
     // METODO CHE MOSTRA PREZZO NO IVA
 
     public String showPrice(){
-        return "Il prezzo base è: " + productPrice + " €";
+        return "Il prezzo base è: " + productPrice + "€";
     }
     // METODO CHE MOSTRA PREZZO INCLUSO IVA
-    public String getIvaPrice(){
-        return "Il prezzo incluso di IVA è: " + (productPrice + (productPrice * ((double) productIva / 100))) + " €";
+        public String getIvaPrice(){
+        double productIvaPrice = (productPrice + (productPrice * ((double) productIva / 100)));
+        String decimalPrice = String.format("%.2f", productIvaPrice);
+        return "Il prezzo incluso IVA è: " + decimalPrice + " €";
+    }
+
+    // METODO PER PREZZO BASE
+    public String getBasePrice(){
+        double showBasePrice = productPrice;
+        String decimalBasePrice = String.format("%.2f", showBasePrice);
+        return "Il prezzo escluso IVA è: " + decimalBasePrice + "€";
     }
 
     // METODO CHE RESTITUISCE PRODUCTNAME + PRODUCTCODE
     public String getFullName(){
-        return "Nome prodotto: " + productName + " - Codice prodotto: " + productCode;
+        return "Nome completo prodotto: " + productCode + "-" + productName;
     }
 
     // METODO UTILITA' CREAZIONE CODICE PER IL PRODOTTO
