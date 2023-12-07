@@ -27,5 +27,23 @@ public class Main {
         System.out.println(productOne.getIvaPrice());
         System.out.println(productTwo.getIvaPrice());
         System.out.println(productThree.getIvaPrice());
+
+        // TESTO LE EXCEPTION
+
+        try {
+            productOne.setProductIva(10);
+            System.out.println("Valore dell'IVA: " + productOne.getProductIva());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Errore: VALORE NON VALIDO");
+        }
+
+        try {
+            productOne.setProductIva(0);
+            System.out.println("Valore dell'IVA: " + productOne.getProductIva());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Errore: " + e.getMessage());
+        }
+
+        }
     }
-}
+

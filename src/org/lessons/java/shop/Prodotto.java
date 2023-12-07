@@ -31,7 +31,11 @@ public class Prodotto {
     }
 
     public void setProductName(String productName) {
-        this.productName = productName;
+        if (productName != null) {
+            this.productName = productName;
+    } else {
+            throw new IllegalArgumentException("Nome non valido!");
+    }
     }
 
     public String getProductDescription() {
@@ -47,16 +51,25 @@ public class Prodotto {
     }
 
     public void setProductPrice(double productPrice) {
-        this.productPrice = productPrice;
-    }
+        if (productPrice > 0) {
+            this.productPrice = productPrice;
+        } else {
+            throw new IllegalArgumentException("Valore non valido");
+        }
+    };
+
 
     public int getProductIva() {
         return productIva;
     }
 
     public void setProductIva(int productIva) {
-        this.productIva = productIva;
-    }
+        if (productIva > 0) {
+            this.productIva = productIva;
+        } else {
+            throw new IllegalArgumentException("ATTENZIONE! Valore non valido");
+        }
+    };
 
     // METODI
 
@@ -85,6 +98,7 @@ public class Prodotto {
         return 1000 + random.nextInt(9000);
     }
 }
+
 
 
 
