@@ -1,7 +1,10 @@
 package org.lessons.java.shop;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         Prodotto productOne = new Prodotto("Banana", "Un frutto molto buono", 7.50, 22);
         Prodotto productTwo = new Prodotto("Mela", "Un frutto poco buono", 5.50, 15);
         Prodotto productThree = new Prodotto("Pera", "Un frutto mediocre", 3.50, 10);
@@ -27,9 +30,10 @@ public class Main {
         System.out.println(productOne.getIvaPrice());
         System.out.println(productTwo.getIvaPrice());
         System.out.println(productThree.getIvaPrice());
+        System.out.println(" ");
 
         // TESTO LE EXCEPTION
-
+        System.out.println("TESTO LE EXCEPTIONS");
         try {
             productOne.setProductIva(10);
             System.out.println("Valore dell'IVA: " + productOne.getProductIva() + "%");
@@ -44,6 +48,19 @@ public class Main {
             System.out.println("Errore: " + e.getMessage());
         }
 
+        System.out.println(" ");
+        System.out.println("TESTO L'EXCEPTION DEL NOME");
+
+        try {
+            // Chiedi all'utente di inserire il nome del prodotto
+            System.out.print("Inserisci il nome del prodotto: ");
+            String userInput = scanner.nextLine();
+            productOne.setProductName(userInput);
+            System.out.println("Il nome è: " + productOne.getProductName());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
     }
+}
+
 

@@ -31,11 +31,11 @@ public class Prodotto {
     }
 
     public void setProductName(String productName) {
-        if (productName != null) {
+        if (productName != null && !productName.trim().isEmpty()) {
             this.productName = productName;
-    } else {
-            throw new IllegalArgumentException("Nome non valido!");
-    }
+        } else {
+            throw new IllegalArgumentException("Errore: Nome non valido!");
+        }
     }
 
     public String getProductDescription() {
